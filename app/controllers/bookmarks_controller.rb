@@ -7,6 +7,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    @list = List.find(params[:list_id])
     @bookmark = @list.bookmarks.new(bookmark_params)
     if @bookmark.save
       redirect_to @list, notice: 'Bookmark was successfully created.'

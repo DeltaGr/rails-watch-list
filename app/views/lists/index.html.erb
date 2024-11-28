@@ -1,6 +1,11 @@
-<h1>All Movie Lists</h1>
-<% @lists.each do |list| %>
-  <div>
-    <h2><%= link_to list.name, list_path(list) %></h2>
-  </div>
-<% end %>
+<h1 class="header">Movie Watch List</h1>
+<div class="container">
+  <% @lists.each do |list| %>
+    <div class="list-card">
+      <h2><%= list.name %></h2>
+      <p><%= list.description %></p>
+      <%= link_to 'Show', list_path(list), class: 'btn btn-primary' %>
+      <%= link_to 'New Bookmark', new_list_bookmark_path(list), class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
